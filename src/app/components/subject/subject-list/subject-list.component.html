@@ -1,0 +1,31 @@
+<h2> Subject List</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th> Subject Id</th>
+            <th> Subject Name </th>
+            <th> Faculty Id</th>
+            <th> Course Id </th>
+            <th> Subject Semester </th>
+            <th> Subject Description </th>
+            <th> Action </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let subject of subjects" >
+            <td> {{ subject.subjectId}} </td>
+            <td> {{ subject.subjectName }} </td>
+            <td> {{ subject.facultyId}} </td>
+            <td> {{ subject.courseId}} </td>
+            <td> {{ subject.subjectSemester}} </td>
+            <td> {{ subject.description}} </td>
+            <td>
+                <button (click) = "updateSubject(subject.subjectId)" class = "btn btn-info" style="margin-left: 10px"> Update</button>
+                <button (click) = "deleteSubject(subject.subjectId)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+

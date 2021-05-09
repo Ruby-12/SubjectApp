@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+  <div class="container-fluid">
+   
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link">Home</a>
+        <a class="nav-link active" aria-current="page" routerLink="/create-subject">Add Subject</a>
+        <a class="nav-link" routerLink="./subject-list">Subject List</a>
+        <a class="nav-link" >Profile</a>
+        <a class="nav-link">Logout</a>
+
+        
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container">
+<router-outlet></router-outlet>
+</div>
+<div  style="text-align: center; margin-top: 50px;">
+    <span>
+        All Rights Reserved 2021 @Angular
+    </span>
+</div>
