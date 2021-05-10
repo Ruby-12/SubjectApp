@@ -1,7 +1,7 @@
-container{
-    height : 400px;
+.container{
+    height : 350px;
 }
 
-.num{
-    height : 100px
+.number{
+    border: 2px solid black;
 }

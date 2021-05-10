@@ -10,35 +10,58 @@ import { SubjectService } from 'src/app/services/subject.service';
 })
 export class SubjectListComponent implements OnInit {
 
- subjects:Subject[];
-  constructor(private subjectService:SubjectService,private router:Router) { }
+  orgin_list: Subject[] = [];
+  listFilter: string = '';
 
-  ngOnInit(): void 
-  {
+
+
+
+
+  subjects: Subject[];
+  constructor(private subjectService: SubjectService, private router: Router) { }
+
+  ngOnInit(): void {
     this.getSubjectList();
   }
 
-  getSubjectList()
-  {
-    this.subjectService.getSubjectList().subscribe(data=>this.subjects=data);
+  getSubjectList() {
+
+    this.subjectService.getSubjectList().subscribe(data => {
+      this.subjects = data
+      this.orgin_list = data
+    });
+
   }
 
-  updateSubject(id:number)
-  {
+  updateSubject(id: number) {
     this.router.navigate(['update-subject', id]);
   }
 
-  deleteSubject(id:number)
-  {
+  deleteSubject(id: number) {
     this.subjectService.deleteSubject(id).subscribe(
-      data=>{alert("Subject has deleted successfully");
-      this.getSubjectList();}
+      data => {
+        alert("Subject has deleted successfully");
+        this.getSubjectList();
+      }
       ,
-      error=>{
+      error => {
         console.log(error);
-        alert("Deletion failed");}
+        alert("Deletion failed");
+      }
     );
-    
+
+  } filter_subject() {
+    if (this.listFilter) {
+      this.subjects = [];
+      for (let c of this.orgin_list) {
+        if ('' + c.subjectId == this.listFilter || c.subjectName.toLowerCase().includes(this.listFilter.toLowerCase())) {
+          this.subjects.push(c)
+        }
+      }
+    }
+    else {
+      this.subjects = this.orgin_list;
+    }
   }
 
 }

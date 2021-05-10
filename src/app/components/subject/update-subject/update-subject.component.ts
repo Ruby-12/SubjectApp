@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'src/app/class/subject';
 import { SubjectService } from 'src/app/services/subject.service';
@@ -9,12 +10,30 @@ import { SubjectService } from 'src/app/services/subject.service';
   styleUrls: ['./update-subject.component.css']
 })
 export class UpdateSubjectComponent implements OnInit {
+  
+  addSubjectForm=new FormGroup({
+    subjectName:new FormControl('',Validators.required),
+    subjectSemester:new FormControl('',Validators.required),
+    courseId:new FormControl('',Validators.required),
+    facultyId:new FormControl('',Validators.required),
+    subjectId:new FormControl('',Validators.required),
+    description:new FormControl('',[Validators.required,Validators.minLength(10)])
+
+  })
+  get subjectName(){return this.addSubjectForm.get('subjectName')}
+  get subjectSemester(){return this.addSubjectForm.get('subjectSemester')}
+  get courseId(){return this.addSubjectForm.get('courseId')}
+  get facultyId(){return this.addSubjectForm.get('facultyId')}
+  get subjectId(){return this.addSubjectForm.get('subject')}
+  get description(){return this.addSubjectForm.get('description')}
+
+
 
   constructor(private route: ActivatedRoute,private router: Router,private subjectService:SubjectService) { }
 
   id: number;
   subject:Subject=new Subject();
-
+ 
   ngOnInit(): void 
   {
     this.id = this.route.snapshot.params['id'];

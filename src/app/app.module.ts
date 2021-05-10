@@ -25,7 +25,7 @@ import {ScrollingModule} from '@angular/cdk/scrolling'
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ScrollingModule
+  ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
