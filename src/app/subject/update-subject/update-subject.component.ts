@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subject } from 'src/app/class/subject';
-import { SubjectService } from 'src/app/services/subject.service';
+import { Subject } from 'src/app/subject/subject';
+import { SubjectService } from 'src/app/subject/subject.service';
 
 @Component({
   selector: 'app-update-subject',
@@ -48,7 +48,16 @@ export class UpdateSubjectComponent implements OnInit {
     alert("Updated successfully");
     this.router.navigate(['/subject-list']);
   }
-
+  goToAddSub()
+  {
+    this.router.navigate(['create-subject'])
+  }
+  goToHomePage(){
+    this.router.navigate(['home-page'])
+  }
+  goToSubjectList(){
+    this.router.navigate(['/subject-list']);
+  }
  
 
 

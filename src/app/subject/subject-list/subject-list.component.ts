@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'src/app/class/subject';
-import { SubjectService } from 'src/app/services/subject.service';
+import { Subject } from 'src/app/subject/subject';
+import { SubjectService } from 'src/app/subject/subject.service';
 
 @Component({
   selector: 'app-subject-list',
@@ -63,5 +63,14 @@ export class SubjectListComponent implements OnInit {
       this.subjects = this.orgin_list;
     }
   }
-
+  goToAddSub()
+  {
+    this.router.navigate(['create-subject'])
+  }
+  goToHomePage(){
+    this.router.navigate(['home-page'])
+  }
+  goToSubjectList(){
+    this.router.navigate(['/subject-list']);
+  }
 }

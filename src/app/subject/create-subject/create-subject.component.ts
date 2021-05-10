@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SubjectService } from 'src/app/services/subject.service';
-import { Subject } from '../../../class/subject';
+import { SubjectService } from 'src/app/subject/subject.service';
+import { Subject } from '../subject';
 
 @Component({
   selector: 'app-create-subject',
@@ -47,12 +47,19 @@ export class CreateSubjectComponent implements OnInit {
     error=>console.log(error));
   }
   
-  goToSubjectList(){
-    this.router.navigate(['/subject-list']);
-  }
+ 
 
   onSubmit(){
     this.saveSubject();
   }
-
+  goToAddSub()
+  {
+    this.router.navigate(['create-subject'])
+  }
+  goToHomePage(){
+    this.router.navigate(['home-page'])
+  }
+  goToSubjectList(){
+    this.router.navigate(['/subject-list']);
+  }
 }
